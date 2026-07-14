@@ -7,7 +7,6 @@ Type=simple
 User=root
 ExecStartPre=docker rm -f clash
 ExecStart=docker run --rm --network host --device /dev/net/tun:/dev/net/tun --cap-add NET_ADMIN -e CLASH_URL=http://xx.xx -e TUN=true --name clash rise0chen/clash
-ExecStop=docker rm -f clash
 
 [Install]
 WantedBy=multi-user.target

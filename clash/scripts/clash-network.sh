@@ -15,8 +15,6 @@ if [ -z "$HOST_INTERFACE" ] || [ -z "$CLASH_INTERFACE" ] || [ -z "$CLASH_IP" ] |
     exit 1
 fi
 
-bash ./clash-clean.sh
-
 echo "[INFO] 正在初始化 Macvlan 网络接口: ${CLASH_INTERFACE} to ${HOST_INTERFACE}..."
 if ! ip link show ${CLASH_INTERFACE} >/dev/null 2>&1; then
     ip link add ${CLASH_INTERFACE} link ${HOST_INTERFACE} type macvlan mode bridge
@@ -24,5 +22,3 @@ if ! ip link show ${CLASH_INTERFACE} >/dev/null 2>&1; then
     ip link set ${CLASH_INTERFACE} up
 fi
 echo "[INFO] Macvlan 配置成功，IP: ${CLASH_IP}，网关: ${GATEWAY_IP}"
-
-bash ./clash-iptables.sh

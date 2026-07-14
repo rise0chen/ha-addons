@@ -21,7 +21,9 @@ if [ "$TPROXY" = "true" ]; then
 	yq -i '. *= load("ClashDnsConfig.yaml")' config.yaml
 	yq -i '. *= load("ClashTproxyConfig.yaml")' config.yaml
 	/clash/scripts/net-forward.sh
+	/clash/scripts/clash-clean.sh
 	/clash/scripts/clash-network.sh
+	/clash/scripts/clash-iptables.sh
 fi
 if [ "$TUN" = "true" ]; then
 	yq -i '. *= load("ClashDnsConfig.yaml")' config.yaml
