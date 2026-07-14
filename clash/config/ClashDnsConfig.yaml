@@ -1,0 +1,18 @@
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: redir-host # fake-ip
+  default-nameserver:
+    - 223.5.5.5
+    - 8.8.8.8
+    - 119.29.29.29
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    - tls://dot.pub:853
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+    - tls://1.1.1.1:853
+    - tls://8.8.8.8:853
+  fallback-filter: { geoip: true, geoip-code: CN }

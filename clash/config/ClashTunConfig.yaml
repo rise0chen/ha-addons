@@ -1,0 +1,5 @@
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true

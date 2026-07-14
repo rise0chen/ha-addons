@@ -1,0 +1,9 @@
+port:
+socks-port:
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+mode: Rule
+log-level: info
+external-controller: :9090
+external-ui: /clash/config/ui
